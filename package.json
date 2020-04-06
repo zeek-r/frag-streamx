@@ -1,0 +1,21 @@
+{
+  "name": "frag-streamx",
+  "version": "1.0.0",
+  "description": "A node library for mp4 fragmentation using bento4",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"test\""
+  },
+  "keywords": [
+    "mp4",
+    "fragmentation",
+    "mpeg",
+    "dash"
+  ],
+  "author": "Roshan Bista",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.653.0",
+    "mysql": "^2.18.1"
+  }
+}
