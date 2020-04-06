@@ -38,10 +38,12 @@ const parser = {
     await mkdir(directory, { recursive: true });
     console.log(`Directory created ${directory}`)
     await converter(converterCommands);
-    console.log("conversions done");
+    console.log("returning");
+    // console.log("conversions done");
     await pushS3Directory(directory);
     await storeUrl({ url: converterCommands.output });
   } catch (error) {
     console.error(error);
+    return;
   }
 })();
