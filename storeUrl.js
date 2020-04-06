@@ -1,15 +1,16 @@
 const db = require("./dbConn");
 const config = require("./config");
 
-const storeUrl = async ({chapterId, url, description}) => {
+const storeUrl = async ({chapterId = null, url = null, description = null}) => {
  try {
    url = `${config.apiEndpoint}/${url}`
-   const sql = `INSERT into ${config.mysqlTable} (chapter_id, url, description) VALUES(${chapterId}, ${url}, ${description})`
+   const sql = `INSERT into ${config.mysqlDb}.${config.mysqlTable} (chapter_id, url, description) VALUES(${chapterId}, "${url}", ${description})`
+   console.log(sql)
    await db.query(sql)
-   return;
+   process.exit(0);
  } catch (error) {
    console.error(error);
-   return;
+   process.exit(0);
  }
  
 }
