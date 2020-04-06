@@ -22,7 +22,7 @@ const baseCommand = ({ input, output, maps, scales, options }) =>
   ${ maps} \
   ${ scales} \
   ${ options} \
-  -f dash ${output}
+  -f dash ${output} && exit
   `;
 
 // const converterScript = `ffmpeg - i sample.mp4 \
