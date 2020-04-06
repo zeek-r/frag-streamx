@@ -5,7 +5,10 @@
   "bucket": "",
   "parallelStreams": 3,
   "mysqlHost": "",
+  "mysqlPort": "",
+  "mysqlUser": "",
   "mysqlPassword": "",
   "mysqlDb": "",
-  "mysqlTable": ""
+  "mysqlTable": "",
+  "apiEndpoint": ""
 }
