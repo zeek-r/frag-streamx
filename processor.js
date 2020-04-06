@@ -3,19 +3,18 @@ const { spawn } = require("child_process");
 
 const processor = ({command = "" }) => {
   return new Promise((resolve, reject) => {
-    const process = spawn(command, {
+    const ps = spawn(command,{
+      stdio: "inherit",
       shell: true
     });
-    process.stdout.on("data",(data) => {
-      console.log(data.toString())
+    ps.on('close', (code) => {
+      console.log("Exit code", code);
+      resolve()
     });
-    process.stderr.on("data", (err) => {
-      console.error(err.toString())
-      reject(err)
-    });
-    process.on('close', (code) => {
-      resolve(code)
-    });
+    ps.on('exit', (code) => {
+      console.log("Exit code", code);
+      resolve();
+    })
   })
 }
 
