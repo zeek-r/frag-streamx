@@ -1,0 +1,11 @@
+{
+  "s3AccessKey": "",
+  "s3SecretKey": "",
+  "s3Region": "",
+  "bucket": "",
+  "parallelStreams": 3,
+  "mysqlHost": "",
+  "mysqlPassword": "",
+  "mysqlDb": "",
+  "mysqlTable": ""
+}
