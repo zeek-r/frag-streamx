@@ -1,6 +1,8 @@
 const converter = require("./converter");
 const mkdir = require("./mkdir");
 const pushS3Directory = require("./pushS3Directory");
+const storeUrl = require("./storeUrl");
+const db = require("./dbConn");
 
 const parser = {
   "--input": (command) => {
@@ -29,12 +31,16 @@ const parser = {
     }
   }
   try {
+    await db.init();
+    console.log("db connection initialized");
     let directory = converterCommands.output.split("/");
     directory = directory.splice(0, directory.length - 1).join("/");
     await mkdir(directory, { recursive: true });
+    console.log(`Directory created ${directory}`)
     await converter(converterCommands);
+    console.log("conversions done");
     await pushS3Directory(directory);
-
+    await storeUrl({ url: converterCommands.output });
   } catch (error) {
     console.error(error);
   }
