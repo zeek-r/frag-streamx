@@ -37,8 +37,4 @@ const pushS3Directory = async(directory) => {
     console.error(error);
   }
 }
-
-(async () => {
-  await pushS3Directory("streams/test")
-})();
 module.exports = pushS3Directory
