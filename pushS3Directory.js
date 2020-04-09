@@ -30,6 +30,7 @@ const pushS3Directory = async(directory) => {
       if(fileStreams === config.parallelStreams) {
         const result = await Promise.all(promises);
         console.log(result);
+        fileStreams = 0;
       }
     }
     return;
